@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Club>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-controller="Club" asp-action="Create" class="btn btn-info">Create club</a>
+<div class="row mb-2">
+@foreach(var item in Model)
+{
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                 <strong class="d-inline-block mb-2 text-success">@item.Title</strong>
+                 <h3 class="mb-0">@item.ClubCategory</h3>
+                 <div class="mb-1 text-muted">Nov 11</div>
+                    <a asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-danger">Edit</a>
+                    <a asp-controller="Club" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Detail</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src="@item.Image" width="100%" />
+            </div>
+         </div>
+    </div>
+
+}
+</div>
+  
+
