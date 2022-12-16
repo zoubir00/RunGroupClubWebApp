@@ -11,7 +11,7 @@ namespace RunGroupClubWebApp.Models
         public int MileAge { get; set; }
 
         [ForeignKey("Address")]
-        public int AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         public Address? Adress { get; set; }
 
