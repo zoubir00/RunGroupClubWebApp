@@ -125,7 +125,7 @@ namespace RunGroupClubWebApp.Data
 
                 //Users
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-                string adminUserEmail = "benzoubir2000@gmail.com";
+                string adminUserEmail = "benzoubir2000gmail.com";
 
                 var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
                 if (adminUser == null)

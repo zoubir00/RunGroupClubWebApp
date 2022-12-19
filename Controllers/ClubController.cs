@@ -12,12 +12,14 @@ namespace RunGroupClubWebApp.Controllers
         //private readonly ApplicationDbContext _db;
         private readonly IClubRepository _clubRepository;
         private readonly IPhotoService _photoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ClubController(/*ApplicationDbContext db,*/ IClubRepository clubRepository,IPhotoService photoService)
+        public ClubController(/*ApplicationDbContext db,*/ IClubRepository clubRepository,IPhotoService photoService,IHttpContextAccessor httpContextAccessor)
         {
             //_db = db;
             _clubRepository = clubRepository;
             _photoService = photoService;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -34,7 +36,12 @@ namespace RunGroupClubWebApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var curUser = _httpContextAccessor.HttpContext.User.GetUserId();
+            var createClubVM = new CreateClubViewModel
+            {
+                AppUserId = curUser
+            };
+            return View(createClubVM);
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateClubViewModel clubVm)
@@ -47,6 +54,7 @@ namespace RunGroupClubWebApp.Controllers
                     Title = clubVm.Title,
                     Description = clubVm.Description,
                     Image = result.Url.ToString(),
+                    AppUserId=clubVm.AppUserId,
                     Address=new Address
                     {
                         Street=clubVm.Address.Street,
