@@ -1,0 +1,43 @@
+﻿@using RunGroupClubWebApp.ViewModel
+@model UserDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+
+<div class="container container-contact bootstrap snippets bootdeys bootdey">
+    <div class="row decor-default">
+        <div class="col-md-12">
+            <div class="contact">
+                <div class="controls">
+                    <span class="icon icon-folder" data-toggle="tooltip" data-placement="top" title="" data-original-title="Archive"></span>
+                    <span class="icon icon-delete" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span>
+                    <span class="icon icon-close" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"></span>
+                    <span class="write" data-toggle="tooltip" data-placement="top" title="" data-original-title="New"></span>
+                    
+                </div>
+
+                <div class="Row">
+                    <div class="col-md-4 col-md-5 col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                User Addresse: @Model.UserName
+                            </div>
+                            <div class="col-xs-9">
+                                User Pace: @Model.Pace
+                            </div>
+
+                            <div class="col-xs-3">
+                               User Mileage: @Model.Mileage
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-xs-12">
+                        <p class="contact-description">Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

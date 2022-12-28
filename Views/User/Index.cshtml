@@ -1,0 +1,32 @@
+﻿@using RunGroupClubWebApp.ViewModel
+@model List<UserViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="row mb-2">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">@item.UserName</strong>
+                    <h3 class="mb-0">@item.Pace</h3>
+                    <h3 class="mb-0">@item.Mileage</h3>
+                    <div class="mb-1 text-muted">Nov 11</div>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("user"))
+                    {
+                        <a asp-controller="User" asp-action="Edit" asp-route-id="@item.id" class="btn btn-danger">Edit</a>
+                        <a asp-controller="User" asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Delete</a>
+
+                    }
+                    <a asp-controller="User" asp-action="Detail" asp-route-id="@item.id" class="btn btn-primary">Details</a>
+                </div>
+
+            </div>
+        </div>
+
+    }
+</div>
