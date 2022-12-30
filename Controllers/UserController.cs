@@ -26,7 +26,8 @@ namespace RunGroupClubWebApp.Controllers
                     id = user.Id,
                     UserName = user.UserName,
                     Pace = user.Pace,
-                    Mileage = user.MileAge
+                    Mileage = user.MileAge,
+                    ProfileImageUrl=user.ProfileImageUrl,
                 };
                 result.Add(userViewModel);
             }
