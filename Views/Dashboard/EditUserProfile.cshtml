@@ -7,26 +7,26 @@
 <h1>EditUserProfile</h1>
 
 <form method="post" asp-action="EditUserProfile" enctype="multipart/form-data">
-  
+  <input type="hidden" id="id" name="id" asp-for="id" />
     <div class="form-group">
         <label asp-for="Pace">Pace</label>
-        <input asp-for="Pace" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pace..  ">
+        <input asp-for="Pace" type="text" class="form-control" placeholder="Pace..  ">
         <span asp-validation-for="Pace" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Mileage">Mileage</label>
-        <input asp-for="Mileage" type="text" class="form-control" id="exampleInputPassword1" placeholder="Mileage..">
+        <input asp-for="Mileage" type="text" class="form-control"  placeholder="Mileage..">
         <span asp-validation-for="Mileage" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="City">City</label>
-        <input asp-for="City" type="text" class="form-control" id="exampleInputPassword1" placeholder="City..">
+        <input asp-for="City" type="text" class="form-control" placeholder="City..">
         <span asp-validation-for="City" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="State">State</label>
-        <input asp-for="State" type="text" class="form-control" id="exampleInputPassword1" placeholder="State..">
+        <input asp-for="State" type="text" class="form-control" placeholder="State..">
         <span asp-validation-for="State" class="text-danger"></span>
     </div>
 
@@ -34,7 +34,7 @@
     <!--Image-->
     <div class="form-group">
         <label asp-for="Image">Profile image</label>
-        <input asp-for="Image" type="file" class="form-control" id="exampleInputPassword1" placeholder="Description">
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image" />
         <span asp-validation-for="Image" class="text-danger"></span>
     </div>
 
