@@ -3,28 +3,22 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-    
-    
-        <video width="1200" autoplay>
-            <source src="~/run,%20cinematic%20fitness%20video.mp4" type="video/mp4" />
-        </video>
   
-
-
 <section>
     <div class="container">
         @if (Model.clubs == null)
         {
             <h1 class="fw-light">
-                There are no running clubs in your area! <a asp-area="" asp-controller="Account"
-                                                        asp-action="Login">Login</a> and create one!
+                There are no running clubs in your area!<span> <a asp-area="" asp-controller="Account"
+                   asp-action="Login">Login</a>
+                </span> and create one!
             </h1>
         }
         else
         {
-            <div class="row justify-content-between mb-5">
+            <div class="row justify-content-between mb-5 text-center">
                 <div class="col-auto">
-                    <h3>Running clubs near @Model.City, @Model.State</h3>
+                    <h3 class="text-black">Running clubs near @Model.City, @Model.State</h3>
                 </div>
                 <!--end of col-->
                 <div class="col-auto">
