@@ -1,4 +1,5 @@
-﻿using RunGroupClubWebApp.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RunGroupClubWebApp.Data;
 using RunGroupClubWebApp.Interfaces;
 using RunGroupClubWebApp.Models;
 
@@ -22,6 +23,27 @@ namespace RunGroupClubWebApp.Repository
             var curUser = _HttpContextAccessor.HttpContext.User.GetUserId();
             var userClub = _dbContext.Clubs.Where(r => r.AppUser.Id == curUser);
             return userClub.ToList();
+        }
+
+
+
+        public async Task<AppUser> GetUserById(string id)
+        {
+            return await _dbContext.Users.FindAsync(id);
+        }
+        public async Task<AppUser> GetByIdNoTracking(string id)
+        {
+            return await _dbContext.Users.Where(u => u.Id == id).AsNoTracking().FirstOrDefaultAsync();
+        }
+        public bool Update(AppUser user)
+        {
+            _dbContext.Update(user);
+            return Save();
+        }
+        public bool Save()
+        {
+            var saved = _dbContext.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }

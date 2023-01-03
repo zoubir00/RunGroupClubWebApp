@@ -6,6 +6,7 @@ html {
   html {
     font-size: 16px;
   }
+
 }
 
 html {
@@ -14,5 +15,27 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #d5f8f3;
+    color: #000000;
+}
+.navbar{
+    background-color:darkcyan;
+}
+ul li {
+    list-style: none;
+}
+#y{
+    font-size:xx-large;
+    color:lightsalmon;
+}
+.card-footer {
+   background-color: #a2f5e0;
+}
+.card-body {
+    background-color: #8af8dd;
+}
+video {
+    width: 100%;
+    height: auto;
 }
