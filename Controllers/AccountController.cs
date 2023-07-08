@@ -75,6 +75,7 @@ namespace RunGroupClubWebApp.Controllers
             var NewUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
             if (NewUserResponse.Succeeded)
             {
+                await _signInManager.SignInAsync(newUser, false);
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
             }
             return RedirectToAction("Index", "Club");
