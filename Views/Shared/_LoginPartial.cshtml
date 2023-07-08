@@ -3,22 +3,20 @@
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@if (User.Identity.IsAuthenticated)
+@if (User.Identity!.IsAuthenticated)
 {
-    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-            <ul class="nav navbar-nav navbar-right">
-                  <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-                  </li>
-                  <li class="nav-item">
-                      <form  asp-area="" asp-controller="Account" asp-action="Logout">
-                    <button class=" text-light btn btn-danger">Log Out</button>
-                      </form>
-@*                   <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link text-dark btn btn-danger">Log Out</a>
-*@                </li>
-            </ul>
-    }
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <form asp-area="" asp-controller="Account" asp-action="Logout">
+                <button class=" text-light btn btn-danger">Log Out</button>
+            </form>
+            @*                   <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link text-dark btn btn-danger">Log Out</a>
+        *@
+        </li>
+    </ul>
 
 }
 else
